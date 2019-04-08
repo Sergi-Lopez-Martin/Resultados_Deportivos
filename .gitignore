@@ -13,7 +13,6 @@ api/yarn-error.log
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-front/dist
 front/tmp
 front/out-tsc
 # Only exists if Bazel was run

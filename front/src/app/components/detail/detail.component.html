@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <h1 class="text-center">{{equipo}}</h1>
+      
+      
+      <div *ngFor='let temporada of info'>
+        <br>
+        <h2>Estadísticas Temporada {{temporada.temporada}}</h2>
+        <br>
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Partidos jugados</th>
+              <th scope="col">Partidos ganados</th>
+              <th scope="col">Partidos empatados</th>
+              <th scope="col">Goles a favor</th>
+              <th scope="col">Goles en contra</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">{{temporada.partidos_jugados}}</th>
+              <td>{{temporada.partidos_ganados}}</td>
+              <td>{{temporada.partidos_empatados}}</td>
+              <td>{{temporada.goles_favor}}</td>
+              <td>{{temporada.goles_contra}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+        
+        
+      </div>
+      
+      
+
+    
+    </div>
+  </div>
+</div>

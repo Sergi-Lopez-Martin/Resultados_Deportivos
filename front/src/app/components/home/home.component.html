@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <div class="input-group">
+        <input type="text" placeholder="buscar equipos" class="input-group-text col-md-10" #name (keyup.enter)="goto(name.value);">
+        <button class="btn btn-primary col-md-2" (click)="goto(name.value);">buscar</button>
+      </div>
+    </div>
+  </div>
+</div>

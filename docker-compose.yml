@@ -1,0 +1,47 @@
+version: "3.7"
+services:
+  php_fpm:
+      build: .
+      container_name: elabs_php_fpm
+      working_dir: /usr/share/nginx/elabs
+      networks:
+        - elabs
+      volumes:
+          - ./:/usr/share/nginx/elabs
+  nginx:
+      image: nginx:1.15
+      container_name: elabs_nginx
+      working_dir: /usr/share/nginx/elabs
+      networks:
+        - elabs
+      ports:
+          - "8080:80"
+      volumes:
+          - ./:/usr/share/nginx/elabs
+          - ./api.conf:/etc/nginx/conf.d/default.conf
+  nginx-front:
+      image: nginx:1.15
+      container_name: elabs_nginx_front
+      working_dir: /usr/share/nginx/elabs
+      networks:
+        - elabs
+      ports:
+          - "8000:80"
+      volumes:
+          - ./:/usr/share/nginx/elabs
+          - ./front.conf:/etc/nginx/conf.d/default.conf
+  mysql:
+      image: mysql:5.7
+      container_name: elabs_mysql
+      networks:
+        - elabs
+      environment:
+        - MYSQL_DATABASE=elabs
+        - MYSQL_ROOT_PASSWORD=password
+        - MYSQL_USER=elabs
+        - MYSQL_PASSWORD=password
+      ports:
+        - "3306:3306"
+networks:
+  elabs:
+    driver: bridge

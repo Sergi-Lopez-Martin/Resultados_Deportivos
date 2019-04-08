@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="text-center">RESULTADOS</h1>
+      <div *ngFor="let temporada of temporadas">
+        <div>
+          <h3>Temporada {{temporada.TEMPORADA}}</h3>
+        </div>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Clubes</th>
+              <th scope="col">Resultado</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Estadio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let partido of partidos">
+              <th scope="row" *ngIf="partido.TEMPORADA === temporada.TEMPORADA"><a
+                  routerLink="/detail/{{partido.LOCAL}}">{{partido.LOCAL}}</a> - <a
+                  routerLink="/detail/{{partido.VISITANTE}}">{{partido.VISITANTE}}</a></th>
+              <td *ngIf="partido.TEMPORADA === temporada.TEMPORADA">{{partido.GOL_LOCAL}} - {{partido.GOL_VISITANTE}}
+              </td>
+              <td *ngIf="partido.TEMPORADA === temporada.TEMPORADA">{{partido.FECHA}}</td>
+              <td *ngIf="partido.TEMPORADA === temporada.TEMPORADA">{{partido.ESTADIO}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h2 class="text-center">EQUIPOS<br>RELACIONADOS</h2>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6" *ngFor="let equipo of equipos">
+            <a routerLink="/detail/{{equipo.LOCAL}}">
+              <div class="card">
+                <div class="card-body">
+                  {{equipo.LOCAL}}
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

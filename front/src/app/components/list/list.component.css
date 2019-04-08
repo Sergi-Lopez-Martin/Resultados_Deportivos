@@ -1,0 +1,18 @@
+h1, h2 {
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.card {
+    margin-bottom: 25px;
+    border: 1px solid #007bff;
+    color: #fff;
+    background-color: #007bff;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+}
+table {
+    margin-bottom: 100px;
+}
